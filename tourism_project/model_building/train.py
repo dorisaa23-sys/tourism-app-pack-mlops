@@ -1,3 +1,5 @@
+import mlflow
+import mlflow.sklearn
 
 mlflow.set_tracking_uri("http://localhost:5000")      #  Setting the MLflow tracking URI
 mlflow.set_experiment("Tourism_Project_ experiment")  # Setting the MLflow experiment name
