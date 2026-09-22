@@ -1,6 +1,13 @@
+import os
+import joblib
+import pandas as pd
+import streamlit as st
 
 # Loading the model committed by the pipeline
-model_path = os.path.join(os.path.dirname(__file__), "best_tourism_package_model_v1.joblib")
+model_path = os.path.join(
+    os.path.dirname(__file__),
+    "best_tourism_package_model_v1.joblib"
+)
 model = joblib.load(model_path)
 
 # Streamlit UI for Tourism Package Prediction
