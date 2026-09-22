@@ -6,13 +6,13 @@ RAW_PATH = TOURISM_PROJECT_ROOT / "data" / "tourism.csv"
 print(f"Reading dataset from: {RAW_PATH}")
 
 # Drop the customer identifier column which is not a predictive feature
-df.drop(columns=["CustomerID"], inplace=True) 
+df.drop(columns=["CustomerID"], inplace=True)
 
 # Categorical columns are intentionally left as raw strings.
 # Training pipeline one-hot-encodes them, and the Streamlit app also sends them.
 
 # Setting the name of the column to predict (whether customer purchased the package), 1 if the customer purchased the package, else 0
-target = "ProdTaken"                                   
+target = "ProdTaken"
 X = df.drop(columns=[target])
 y = df[target]
 
