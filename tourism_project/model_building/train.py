@@ -107,7 +107,16 @@ with mlflow.start_run():
 
     # Save the model next to app.py so the Streamlit app can load it directly,
     # and log it as an MLflow artifact for traceability
-    model_path = "/content/tourism_project/deployment/best_tourism_package_model_v1.joblib"
-    joblib.dump(best_model, model_path)
-    mlflow.log_artifact(model_path, artifact_path="model")
-    print(f"Model saved to {model_path}")
+   # Build a path that works in Colab and GitHub Actions
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+deployment_dir = os.path.join(project_root, "deployment")
+os.makedirs(deployment_dir, exist_ok=True)
+
+model_path = os.path.join(
+    deployment_dir,
+    "best_tourism_package_model_v1.joblib"
+)
+
+joblib.dump(best_model, model_path)
+mlflow.log_artifact(model_path, artifact_path="model")
+print(f"Model saved successfully to: {model_path}")
