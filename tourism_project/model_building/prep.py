@@ -6,6 +6,8 @@ TOURISM_PROJECT_ROOT = Path(__file__).resolve().parents[1]
 RAW_PATH = TOURISM_PROJECT_ROOT / "data" / "tourism.csv"
 
 print(f"Reading dataset from: {RAW_PATH}")
+# Loading the raw dataset
+df = pd.read_csv(RAW_PATH)
 
 # Drop the customer identifier column which is not a predictive feature
 df.drop(columns=["CustomerID"], inplace=True)
