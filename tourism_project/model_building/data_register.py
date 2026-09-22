@@ -1,4 +1,5 @@
 from pathlib import Path
+import pandas as pd
 
 # Path to the raw tourism.csv file inside the data folder
 TOURISM_PROJECT_ROOT = Path(__file__).resolve().parents[1]
