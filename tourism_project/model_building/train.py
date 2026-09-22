@@ -1,5 +1,15 @@
+import os
+import joblib
+import pandas as pd
+import xgboost as xgb
 import mlflow
 import mlflow.sklearn
+
+from sklearn.compose import make_column_transformer
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.pipeline import make_pipeline
+from sklearn.model_selection import GridSearchCV
+from sklearn.metrics import classification_report
 
 mlflow.set_tracking_uri("http://localhost:5000")      #  Setting the MLflow tracking URI
 mlflow.set_experiment("Tourism_Project_ experiment")  # Setting the MLflow experiment name
